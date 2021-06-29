@@ -83,13 +83,15 @@ struct ContentView: View {
             } else {
                 List {
                     ForEach(0..<notes.count, id: \.self) { i in
-                        HStack {
-                            Capsule()
-                                .frame(width: 4)
-                                .foregroundColor(.accentColor)
-                            Text(notes[i].text)
-                                .lineLimit(1)
-                                .padding(.leading, 5)
+                        NavigationLink(destination: DetailView(note: notes[i], count: notes.count, index: i)) {
+                            HStack {
+                                Capsule()
+                                    .frame(width: 4)
+                                    .foregroundColor(.accentColor)
+                                Text(notes[i].text)
+                                    .lineLimit(1)
+                                    .padding(.leading, 5)
+                            }
                         }
                     }
                     .onDelete(perform: delete)
