@@ -19,6 +19,7 @@
 		1D6A9C03268B09BF001878B2 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A9C02268B09BF001878B2 /* DetailView.swift */; };
 		1D6A9C05268B1472001878B2 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A9C04268B1472001878B2 /* CreditsView.swift */; };
 		1D6A9C08268B14B4001878B2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A9C07268B14B4001878B2 /* HeaderView.swift */; };
+		1D6A9C0A268B1C42001878B2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A9C09268B1C42001878B2 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		1D6A9C02268B09BF001878B2 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1D6A9C04268B1472001878B2 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		1D6A9C07268B14B4001878B2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1D6A9C09268B1C42001878B2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				1D6A9BE4268AD3F8001878B2 /* ContentView.swift */,
 				1D6A9C02268B09BF001878B2 /* DetailView.swift */,
 				1D6A9C04268B1472001878B2 /* CreditsView.swift */,
+				1D6A9C09268B1C42001878B2 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6A9BE5268AD3F8001878B2 /* ContentView.swift in Sources */,
+				1D6A9C0A268B1C42001878B2 /* SettingsView.swift in Sources */,
 				1D6A9BE7268AD3F8001878B2 /* NotesApp.swift in Sources */,
 				1D6A9BE9268AD3F8001878B2 /* ComplicationController.swift in Sources */,
 				1D6A9C05268B1472001878B2 /* CreditsView.swift in Sources */,
