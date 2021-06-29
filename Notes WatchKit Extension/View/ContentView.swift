@@ -15,8 +15,38 @@ struct ContentView: View {
     
     // MARK: - Functions
     
+    func getDocumentDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
+    }
+    
     func save() {
-        dump(notes)
+        do {
+            let data = try JSONEncoder().encode(notes)
+            let url = getDocumentDirectory().appendingPathComponent("notes")
+            try data.write(to: url)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func load() {
+        DispatchQueue.main.async {
+            do {
+                let url = getDocumentDirectory().appendingPathComponent("notes")
+                let data = try Data(contentsOf: url)
+                notes = try JSONDecoder().decode([Note].self, from: data)
+            } catch {
+                // do nothing
+            }
+        }
+    }
+    
+    func delete(offset: IndexSet) {
+        withAnimation {
+            notes.remove(atOffsets: offset)
+            save()
+        }
     }
     
     // MARK: - Body
@@ -40,9 +70,36 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
             }
             Spacer()
-            Text("\(notes.count)")
+            
+            if notes.isEmpty {
+                Spacer()
+                Image(systemName: "note.text")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.gray)
+                    .opacity(0.25)
+                    .padding(25)
+                Spacer()
+            } else {
+                List {
+                    ForEach(0..<notes.count, id: \.self) { i in
+                        HStack {
+                            Capsule()
+                                .frame(width: 4)
+                                .foregroundColor(.accentColor)
+                            Text(notes[i].text)
+                                .lineLimit(1)
+                                .padding(.leading, 5)
+                        }
+                    }
+                    .onDelete(perform: delete)
+                }
+            }
         }
         .navigationTitle("Notes")
+        .onAppear{
+            load()
+        }
     }
 }
 
